@@ -30,16 +30,16 @@ export default function Images() {
 
 
     return (
-        <ImageLayout>
+        <>
             {resp.map((value) =>{
                 return (
-                    <div className="image_wrap">
+                    <ImageLayout>
                         <p className="title">{value[0]}</p>
                         <img src={value[1]} alt="" />
                         <p class="description">{value[2]}</p>
-                    </div>
+                    </ImageLayout>
                 )
             })}
-        </ImageLayout>
+        </>
     )
 }
