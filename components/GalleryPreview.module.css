@@ -1,0 +1,22 @@
+.container_wrap {
+  height: 200px;
+}
+
+.container_wrap a {
+  float: right;
+  color: #0070f3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.img_container {
+  display: flex;
+}
+
+.img_container div {
+  margin: auto 10px;
+}
+
+.img_wrap img {
+  height: 190px !important;
+}

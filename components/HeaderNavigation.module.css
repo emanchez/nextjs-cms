@@ -1,0 +1,25 @@
+.nav_wrap {
+  position: relative;
+  margin-bottom: 20px;
+  height: 75px;
+  border-bottom: 2px solid rgb(233, 233, 233);
+}
+
+.nav {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.nav span {
+  bottom: 0;
+  margin: 0 20px;
+  font-size: xx-large;
+  border-bottom: 2px solid orange;
+  color: gray;
+}
+
+.nav span:hover {
+  cursor: pointer;
+}

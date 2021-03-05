@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import ImageLayout from "./ImageLayout"
+import Link from 'next/link'
+import styles from './GalleryPreview.module.css'
+import Images from './Images'
 
 const contentful = require("contentful");
 const client = contentful.createClient({
@@ -7,7 +9,7 @@ const client = contentful.createClient({
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_KEY
 });
 
-export default function Images() {
+export default function GalleryPreview(){
     let [resp, setResp] = useState([])
 
     useEffect(()=>{
@@ -17,9 +19,7 @@ export default function Images() {
             const respArray = (await parseData).items
             const cleanArray = await respArray.map((value) =>{
                 return (
-                    [value.fields.title, 
-                    value.fields.image.fields.file.url,
-                    value.fields.description]
+                    [value.fields.image.fields.file.url]
                 )
             })
             setResp(cleanArray)        
@@ -27,19 +27,25 @@ export default function Images() {
         getContenfulStuff()
 
     }, [])
-
-
     return (
-        <>
-            {resp.map((value) =>{
-                return (
-                    <ImageLayout>
-                        <p className="title">{value[0]}</p>
-                        <img src={value[1]} alt="" />
-                        <p className="description">{value[2]}</p>
-                    </ImageLayout>
-                )
-            })}
-        </>
+
+        <div className={styles.container_wrap}>
+            <div className={styles.img_container}>
+                {
+                resp.map((value) => {
+                    return(
+                        <div className={styles.img_wrap}>
+                            <img src={value[0]}></img>
+                        </div>
+                    )
+                })
+                }
+            </div>
+          <Link href="./gallery">
+            <a>View full gallery&gt;</a>
+          </Link>
+        </div>
+        
     )
+    
 }
