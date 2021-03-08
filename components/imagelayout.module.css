@@ -1,7 +1,5 @@
 .image_wrap p {
   font-weight: bold;
-}
-
-.image_wrap img {
-  width: 500px;
+  color: white;
+  justify-self: flex-end;
 }
